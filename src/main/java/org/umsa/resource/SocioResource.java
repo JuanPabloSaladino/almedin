@@ -1,23 +1,33 @@
 package org.umsa.resource;
 
 import jakarta.inject.Inject;
+import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import org.umsa.model.Socio;
-import org.umsa.repository.SocioRepository;
-
-import java.util.List;
+import jakarta.ws.rs.core.Response;
+import org.umsa.bo.SocioBO;
 
 @Path("/socios")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class SocioResource {
     @Inject
-    SocioRepository socioRepository;
+    SocioBO socioBO;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Socio> getSocios() {
-        return socioRepository.listAll();
+    public Response getSocios() {
+        try {
+            return Response
+                    .ok(socioBO.getSocios())
+                    .build();
+        } catch (Exception e) {
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error al obtener socios")
+                    .build();
+        }
     }
 }
