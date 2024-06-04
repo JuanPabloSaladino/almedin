@@ -1,21 +1,32 @@
 package org.umsa.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-public class Socio extends PanacheEntity {
-    private String apellido;
+public class Socio extends Persona {
+    
+	/*@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
+	private int idSocio;
+	
+    private boolean autorizado;
+    
+    @ManyToOne
+    private Plan planActual;
+    
+    @OneToMany
+    private List<Turno>turnos;
 
-    private String documento;
-
-    private String nombre;
+    @OneToMany
+    private List<Receta>recetas; 
 }
