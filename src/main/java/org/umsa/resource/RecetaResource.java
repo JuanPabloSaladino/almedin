@@ -7,12 +7,16 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.umsa.bo.RecetaBO;
 
 @Path("/recetas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RecetaResource {
+    private static final Logger logger = LogManager.getLogger(ProfesionalResource.class);
+
     @Inject
     RecetaBO recetaBO;
 
@@ -24,6 +28,8 @@ public class RecetaResource {
                     .ok(recetaBO.getRecetas())
                     .build();
         } catch (Exception e) {
+            logger.error("Error al obtener recetas", e);
+
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error al obtener recetas")
