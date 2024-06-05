@@ -11,27 +11,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Receta extends PanacheEntity {
-	
-	
-	
-	private String recetaHash = UUID.randomUUID().toString();
-	
-	private String contenido;
-	
+
+    private String recetaHash = UUID.randomUUID().toString();
+    private String contenido;
     private LocalDateTime fechaCreacion;
-    
-    
+
     @ManyToOne
     private Socio socio;
-    
+
     @ManyToOne
     private Profesional profesional;
-    
-    
-    
 }

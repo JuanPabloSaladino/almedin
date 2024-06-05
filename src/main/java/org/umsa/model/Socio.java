@@ -14,19 +14,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Socio extends Persona {
-    
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)*/
-	private int idSocio;
-	
+
     private boolean autorizado;
-    
+
     @ManyToOne
     private Plan planActual;
-    
-    @OneToMany
-    private List<Turno>turnos;
 
-    @OneToMany
-    private List<Receta>recetas; 
+    @OneToMany(mappedBy = "socio")
+    private List<Turno> turnos;
+
+    @OneToMany(mappedBy = "socio")
+    private List<Receta> recetas;
 }

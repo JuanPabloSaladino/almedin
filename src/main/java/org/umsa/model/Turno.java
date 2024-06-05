@@ -11,28 +11,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@AllArgsConstructor
 @Data
+@Entity
 @NoArgsConstructor
+@AllArgsConstructor
 public class Turno extends PanacheEntity {
-	
-	
-	private String turnohash=UUID.randomUUID().toString();
-	
-    private LocalDateTime fecha;
 
+    private String turnoHash = UUID.randomUUID().toString();
+    private LocalDateTime fecha;
     private LocalDateTime fechaCreacion;
-    
     private boolean ocupado;
-    
     private boolean cancelado;
-    
-    
+
     @ManyToOne
     private Socio socio;
 
     @ManyToOne
     private Profesional profesional;
-    
 }
