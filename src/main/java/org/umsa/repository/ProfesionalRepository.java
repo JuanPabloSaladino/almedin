@@ -6,4 +6,6 @@ import org.umsa.model.Profesional;
 
 @ApplicationScoped
 public class ProfesionalRepository implements PanacheRepository<Profesional> {
+
+
 }
