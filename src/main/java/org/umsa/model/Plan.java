@@ -1,29 +1,29 @@
 package org.umsa.model;
 
-import java.util.List;
-
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+import java.util.List;
+
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@NoArgsConstructor
+@Setter
 public class Plan extends PanacheEntity {
-
     private String nombre;
+
     private int precio;
 
     @ManyToMany
     private List<Profesional> profesional;
 
-    @OneToMany(mappedBy = "planActual")
+    @OneToMany(mappedBy = "plan")
     private List<Socio> socios;
 }

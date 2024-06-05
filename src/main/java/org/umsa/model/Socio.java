@@ -1,24 +1,36 @@
 package org.umsa.model;
 
-import java.util.List;
-
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+import java.util.List;
+
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-public class Socio extends Persona {
+@Getter
+@NoArgsConstructor
+@Setter
+public class Socio extends PanacheEntity {
+    private String apellido;
 
     private boolean autorizado;
 
+    private String documento;
+
+    private int edad;
+
+    private String email;
+
+    private String nombre;
+
     @ManyToOne
-    private Plan planActual;
+    private Plan plan;
 
     @OneToMany(mappedBy = "socio")
     private List<Turno> turnos;

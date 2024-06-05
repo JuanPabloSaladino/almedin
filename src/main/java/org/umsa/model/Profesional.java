@@ -1,31 +1,40 @@
 package org.umsa.model;
 
-import java.util.List;
-
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+import java.util.List;
+
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-public class Profesional extends Persona{
+@Getter
+@NoArgsConstructor
+@Setter
+public class Profesional extends PanacheEntity {
+    private String apellido;
 
-	
+    private String documento;
+
+    private String email;
+
     private String especialidad;
-    private String matricula;
-    
-    @ManyToMany
-    private List<Plan>planes;
 
-    @OneToMany(mappedBy = "profesional")
-    private List<Turno> turnos;
+    private String matricula;
+
+    private String nombre;
+
+    @ManyToMany(mappedBy = "profesional")
+    private List<Plan> planes;
 
     @OneToMany(mappedBy = "profesional")
     private List<Receta> recetas;
+
+    @OneToMany(mappedBy = "profesional")
+    private List<Turno> turnos;
 }

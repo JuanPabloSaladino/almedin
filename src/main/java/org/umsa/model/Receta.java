@@ -1,29 +1,31 @@
 package org.umsa.model;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@NoArgsConstructor
+@Setter
 public class Receta extends PanacheEntity {
-
-    private String recetaHash = UUID.randomUUID().toString();
     private String contenido;
+
     private LocalDateTime fechaCreacion;
 
-    @ManyToOne
-    private Socio socio;
+    private String hash = UUID.randomUUID().toString();
 
     @ManyToOne
     private Profesional profesional;
+
+    @ManyToOne
+    private Socio socio;
 }
