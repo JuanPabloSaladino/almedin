@@ -47,4 +47,16 @@ public class TurnoDAOImpl implements TurnoDAO {
             turnoRepository.deleteById(turnoID);
         }
     }
+
+    @Override
+    public void actualizarTurno(Long turnoID, Turno turno) throws PersistenceException {
+        logger.info("Se actualiza el turno con ID: " + turnoID);
+        Turno turnoEncontrado = turnoRepository.findById(turnoID);
+
+        if (turnoEncontrado != null) {
+            turnoRepository.persist(turno);
+        } else {
+            throw new PersistenceException("El turno no existe");
+        }
+    }
 }

@@ -12,4 +12,6 @@ public interface TurnoBO {
     public Long crearTurno(TurnoDTO turnoDTO) throws Exception;
 
     public void eliminarTurno(Long turnoID) throws Exception;
+
+    public void actualizarTurno(Long turnoID, TurnoDTO turnoDTO) throws Exception;
 }
