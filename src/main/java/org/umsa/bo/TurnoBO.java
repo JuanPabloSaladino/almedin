@@ -9,5 +9,9 @@ import java.util.List;
 public interface TurnoBO {
     public List<Turno> getTurnos();
 
-    public Long crearTurno(TurnoDTO turnoDTO) throws Exception, PersistenceException;
+    public Long crearTurno(TurnoDTO turnoDTO) throws Exception;
+
+    public void eliminarTurno(Long turnoID) throws Exception;
+
+    public void actualizarTurno(Long turnoID, TurnoDTO turnoDTO) throws Exception;
 }
