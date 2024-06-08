@@ -3,6 +3,7 @@ package org.umsa.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import jakarta.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
@@ -21,7 +22,7 @@ import lombok.Setter;
 public class Turno extends PanacheEntity {
     private boolean cancelado;    //preguntar, como lo ve pq pasaria de false a true y devuelta a false , a menos que sea cancelado definitivo (baja del turno) 
 
-    private LocalDateTime fecha;
+    private LocalDateTime fechaInicio;
     
     @CreationTimestamp
     private LocalDateTime fechaCreacion;
@@ -37,4 +38,7 @@ public class Turno extends PanacheEntity {
 
     @ManyToOne
     private Socio socio;
+
+    @OneToOne
+    private Receta receta;
 }
