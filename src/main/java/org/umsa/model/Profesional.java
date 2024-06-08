@@ -31,7 +31,20 @@ public class Profesional extends PanacheEntity {
 
     private String ubicacion;
 
-    @ManyToMany(mappedBy = "profesional")
+   /* public boolean estaLibre(){
+
+        boolean verificacion= true;
+
+        for (Turno turno:this.turnos){
+            if(turno.get){
+
+            }
+        }
+
+        return verificacion;
+    }*/
+
+    @ManyToMany(mappedBy = "profesionales")
     private List<Plan> planes;
 
     @OneToMany(mappedBy = "profesional")

@@ -54,7 +54,7 @@ public class TurnoBOImpl implements TurnoBO {
                 throw new Exception("Profesional no encontrado");
             }
 
-            turno.setFecha(turnoDTO.getFechaTurno());
+            turno.setFechaInicio(turnoDTO.getFechaTurno());
 
             turno.setMotivoDeConsulta(turnoDTO.getMotivoDeConsultaTurno());
 

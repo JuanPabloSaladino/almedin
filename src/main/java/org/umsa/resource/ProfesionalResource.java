@@ -7,7 +7,7 @@ import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 import org.umsa.bo.ProfesionalBO;
 
-@Path("/profesionales")
+@Path("/especialistas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ProfesionalResource {
@@ -34,12 +34,12 @@ public class ProfesionalResource {
     }
 
 
-    @GET
+    /*@GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getProfesionalById(@PathParam("id") Long id) {
+    public Response getProfesionalById(@PathParam("id") Long idUsuario) {
         try {
             return Response
-                    .ok(profesionalBO.getProfesionalById(id))
+                    .ok(profesionalBO.getProfesionalById(idUsuario))
                     .build();
         } catch (Exception e) {
             logger.error("Error al obtener profesionales", e);
@@ -49,7 +49,7 @@ public class ProfesionalResource {
                     .entity("Error al obtener profesionales")
                     .build();
         }
-    }
+    }*/
 
 
 }

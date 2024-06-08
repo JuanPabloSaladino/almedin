@@ -6,4 +6,7 @@ import org.umsa.model.Turno;
 
 @ApplicationScoped
 public class TurnoRepository implements PanacheRepository<Turno> {
+
+
+
 }

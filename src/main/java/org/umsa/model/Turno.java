@@ -23,14 +23,14 @@ public class Turno extends PanacheEntity {
     private boolean cancelado;    //preguntar, como lo ve pq pasaria de false a true y devuelta a false , a menos que sea cancelado definitivo (baja del turno) 
 
     private LocalDateTime fechaInicio;
-    
+
     @CreationTimestamp
     private LocalDateTime fechaCreacion;
 
     private String hash = UUID.randomUUID().toString();
 
     private boolean ocupado;
-    
+
     private String motivoDeConsulta;
 
     @ManyToOne
