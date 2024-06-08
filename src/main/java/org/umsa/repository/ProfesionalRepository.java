@@ -8,4 +8,10 @@ import org.umsa.model.Profesional;
 public class ProfesionalRepository implements PanacheRepository<Profesional> {
 
 
+	public Profesional getProfesionalById(Long id) {
+		
+		return Profesional.findById(id);
+		
+	}
+	
 }

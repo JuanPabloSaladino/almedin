@@ -17,4 +17,9 @@ public class SocioDAOImpl implements SocioDAO {
     public List<Socio> getSocios() {
         return socioRepository.listAll();
     }
+
+    @Override
+    public Socio getSocioById(Long id) {
+        return socioRepository.findById(id);
+    }
 }

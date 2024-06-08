@@ -7,15 +7,14 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.jboss.logging.Logger;
 import org.umsa.bo.RecetaBO;
 
 @Path("/recetas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RecetaResource {
-    private static final Logger logger = LogManager.getLogger(ProfesionalResource.class);
+    private static final Logger logger = Logger.getLogger(RecetaResource.class);
 
     @Inject
     RecetaBO recetaBO;
