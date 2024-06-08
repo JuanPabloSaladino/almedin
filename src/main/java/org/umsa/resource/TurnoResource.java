@@ -15,7 +15,7 @@ import org.umsa.bo.TurnoBO;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class TurnoResource {
-    private static final Logger logger = LogManager.getLogger(ProfesionalResource.class);
+    private static final Logger logger = LogManager.getLogger(TurnoResource.class);
 
     @Inject
     TurnoBO turnoBO;

@@ -15,7 +15,7 @@ import org.umsa.bo.SocioBO;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class SocioResource {
-    private static final Logger logger = LogManager.getLogger(ProfesionalResource.class);
+    private static final Logger logger = LogManager.getLogger(SocioResource.class);
 
     @Inject
     SocioBO socioBO;

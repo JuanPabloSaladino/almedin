@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface ProfesionalDAO {
     public List<Profesional> getProfesionales();
+    
+    public Profesional getProfesionalById(Long id);
+    
+    
 }
