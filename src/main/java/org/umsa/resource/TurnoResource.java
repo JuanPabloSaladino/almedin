@@ -81,4 +81,28 @@ public class TurnoResource {
                     .build();
         }
     }
+
+    @PUT
+    @Transactional
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response actualizarTurno(@PathParam("id") Long id, TurnoDTO turnoDTO) {
+        try {
+            turnoBO.actualizarTurno(id, turnoDTO);
+
+            return Response
+                    .ok("El turno con ID " + id + " se actualizó exitosamente")
+                    .build();
+        } catch (Exception e) {
+            String mensaje = "Error al actualizar turno";
+
+            logger.error(mensaje, e);
+
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(mensaje)
+                    .build();
+        }
+    }
 }

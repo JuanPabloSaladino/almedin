@@ -34,7 +34,7 @@ public class ProfesionalResource {
     }
 
 
-    @GET
+    /*@GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProfesionalById(@PathParam("id") Long id) {
         try {
@@ -49,7 +49,7 @@ public class ProfesionalResource {
                     .entity("Error al obtener profesionales")
                     .build();
         }
-    }
+    }*/
 
 
 }

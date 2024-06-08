@@ -84,4 +84,32 @@ public class TurnoBOImpl implements TurnoBO {
             throw new Exception(mensaje);
         }
     }
+
+    @Override
+    public void actualizarTurno(Long turnoID, TurnoDTO turnoDTO) throws Exception {
+        try {
+            Turno turno = new Turno();
+
+            Profesional profesional = profesionalDAO.getProfesionalById(turnoDTO.getProfesionalID());
+
+            if (profesional != null) {
+                turno.setProfesional(profesional);
+            } else {
+                throw new Exception("Profesional no encontrado");
+            }
+
+            turno.setFechaInicio(turnoDTO.getFechaTurno());
+            turno.setProfesional(profesional);
+            turno.setMotivoDeConsulta(turno.getMotivoDeConsulta());
+            turno.setOcupado(true);
+
+            turnoDAO.actualizarTurno(turnoID, turno);
+        } catch (PersistenceException e) {
+            String mensaje = "Error al actualizar turno";
+
+            logger.error(mensaje, e);
+
+            throw new Exception(mensaje);
+        }
+    }
 }
