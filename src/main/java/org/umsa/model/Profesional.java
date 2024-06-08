@@ -31,7 +31,7 @@ public class Profesional extends PanacheEntity {
 
     private String ubicacion;
 
-    @ManyToMany(mappedBy = "profesional")
+    @ManyToMany(mappedBy = "profesionales")
     private List<Plan> planes;
 
     @OneToMany(mappedBy = "profesional")
