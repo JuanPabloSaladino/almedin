@@ -29,11 +29,10 @@ public class Profesional extends PanacheEntity {
 
     private String nombre;
 
+    private String ubicacion;
+
     @ManyToMany(mappedBy = "profesional")
     private List<Plan> planes;
-
-    @OneToMany(mappedBy = "profesional")
-    private List<Receta> recetas;
 
     @OneToMany(mappedBy = "profesional")
     private List<Turno> turnos;

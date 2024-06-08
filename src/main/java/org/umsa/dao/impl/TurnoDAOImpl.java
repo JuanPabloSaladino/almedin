@@ -36,4 +36,15 @@ public class TurnoDAOImpl implements TurnoDAO {
             throw new PersistenceException(mensaje);
         }
     }
+
+    @Override
+    public void eliminarTurno(Long turnoID) throws PersistenceException {
+        Turno turno = turnoRepository.findById(turnoID);
+
+        if (turno == null) {
+            throw new PersistenceException("El turno no existe");
+        } else {
+            turnoRepository.deleteById(turnoID);
+        }
+    }
 }

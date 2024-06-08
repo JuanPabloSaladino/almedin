@@ -9,4 +9,6 @@ public interface TurnoDAO {
     public List<Turno> getTurnos();
 
     public Long crearTurno(Turno turno) throws PersistenceException;
+
+    public void eliminarTurno(Long turnoID) throws PersistenceException;
 }

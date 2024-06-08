@@ -22,18 +22,15 @@ public class Plan extends PanacheEntity {
     private int precio;
 
     @ManyToMany
-    private List<Profesional> profesional;
+    private List<Profesional> profesionales;
 
     @OneToMany(mappedBy = "plan")
     private List<Socio> socios;
 
-	public List<Profesional> getProfesional() {
+	public List<Profesional> getProfesionales() {
 		// TODO Auto-generated method stub
-		return this.profesional;
+		return this.profesionales;
 	}
-    
-    
 
-	
 	
 }

@@ -3,6 +3,7 @@ package org.umsa.model;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,9 @@ public class Receta extends PanacheEntity {
     private LocalDateTime fechaCreacion;
 
     private String hash = UUID.randomUUID().toString();
+
+    @OneToOne
+    private Turno turno;
 
     @ManyToOne
     private Profesional profesional;
