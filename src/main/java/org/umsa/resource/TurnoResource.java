@@ -1,6 +1,7 @@
 package org.umsa.resource;
 
 import jakarta.inject.Inject;
+import jakarta.persistence.PersistenceException;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -48,6 +49,29 @@ public class TurnoResource {
                     .build();
         } catch (Exception e) {
             String mensaje = "Error al crear turno";
+
+            logger.error(mensaje, e);
+
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity(mensaje)
+                    .build();
+        }
+    }
+
+    @DELETE
+    @Transactional
+    @Path("/{turnoId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response eliminarTurno(@PathParam("turnoId") Long turnoId) {
+        try {
+            turnoBO.eliminarTurno(turnoId);
+
+            return Response
+                    .ok("El turno con ID " + turnoId + " se eliminó exitosamente")
+                    .build();
+        } catch (Exception e) {
+            String mensaje = "Error al eliminar turno";
 
             logger.error(mensaje, e);
 

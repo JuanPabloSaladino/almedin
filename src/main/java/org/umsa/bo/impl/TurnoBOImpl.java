@@ -66,7 +66,20 @@ public class TurnoBOImpl implements TurnoBO {
 
             logger.error(mensaje, e);
 
-            throw new PersistenceException(mensaje);
+            throw new Exception(mensaje);
+        }
+    }
+
+    @Override
+    public void eliminarTurno(Long turnoID) throws Exception {
+        try {
+            turnoDAO.eliminarTurno(turnoID);
+        } catch (PersistenceException e) {
+            String mensaje = "Error al eliminar turno";
+
+            logger.error(mensaje, e);
+
+            throw new Exception(mensaje);
         }
     }
 }
