@@ -34,15 +34,15 @@ public class ProfesionalResource {
     }
 }
 
-    /*@GET
+   /* @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProfesionalById(@PathParam("id") Long idUsuario) {
         try {
             return Response
-                    .ok(profesionalBO.getProfesionalById(idUsuario))
+                    .ok("PROBANDINGGGGGG")
                     .build();
         } catch (Exception e) {
-            logger.error("Error al obtener profesionales", e);
+            logger.error
 
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)

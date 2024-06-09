@@ -17,4 +17,14 @@ public class RecetaBOImpl implements RecetaBO {
     public List<Receta> getRecetas() {
         return recetaDAO.getRecetas();
     }
+
+    @Override
+    public Receta descargarReceta(Long idTurno, Long idUsuario){
+
+        Receta receta = recetaDAO.descargarReceta(idTurno,idUsuario);
+
+        if (receta == null) throw new RuntimeException("Usuario no Permitido");
+
+        return receta;
+    }
 }

@@ -1,14 +1,12 @@
 package org.umsa.resource;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 import org.umsa.bo.RecetaBO;
+import org.umsa.model.Receta;
 
 @Path("/recetas")
 @Produces(MediaType.APPLICATION_JSON)
@@ -35,4 +33,34 @@ public class RecetaResource {
                     .build();
         }
     }
+
+
+    @GET
+    @Path ("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response descargarReceta(@PathParam("id") Long idTurno, Long idUsuario) {
+       try {
+
+           Receta receta = recetaBO.descargarReceta(idTurno,idUsuario);
+
+           return Response
+                   .ok(receta)
+                   .build();
+
+       }catch (Exception e){
+           logger.error("error al descargar receta ",e);
+
+           return Response
+                   .status(Response.Status.INTERNAL_SERVER_ERROR)
+                   .entity("error al descargar receta ")
+                   .build();
+
+       }
+
+    }
+
+
+
+
+
 }
