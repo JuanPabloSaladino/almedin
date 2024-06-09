@@ -39,6 +39,6 @@ public class Turno extends PanacheEntity {
     @ManyToOne
     private Socio socio;
 
-    @OneToOne
+    @OneToOne(mappedBy = "turno")
     private Receta receta;
 }
