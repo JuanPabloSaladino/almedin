@@ -28,7 +28,6 @@ public class Plan extends PanacheEntity {
     private List<Socio> socios;
 
     public List<Profesional> getProfesionales() {
-
         return this.profesionales;
     }
 

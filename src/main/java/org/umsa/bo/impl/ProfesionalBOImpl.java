@@ -33,6 +33,9 @@ public class ProfesionalBOImpl implements ProfesionalBO {
 		List <ProfesionalDTO> profesionalesDTO= new ArrayList<ProfesionalDTO>();
 
 		for(Profesional profesional:profesionales){
+
+			if(estaLibre(profesional.id)){
+
 			ProfesionalDTO nuevoDTO = new ProfesionalDTO();
 			nuevoDTO.setNombreMedico(profesional.getNombre());
 			nuevoDTO.setEspecialidad(profesional.getEspecialidad());
@@ -40,6 +43,7 @@ public class ProfesionalBOImpl implements ProfesionalBO {
 			nuevoDTO.setHorarios(profesionalDAO.getTurnosDisponibles(profesional.id));
 
 			profesionalesDTO.add(nuevoDTO);
+			}
 		}
 
 		return profesionalesDTO;
@@ -47,8 +51,7 @@ public class ProfesionalBOImpl implements ProfesionalBO {
 
 	@Override
 	public boolean estaLibre(Long id) {
-		/*profesionalDAO.estaLibre(id)*/
-		return false;
+		return profesionalDAO.estaLibre(id);
 	}
 
 

@@ -32,7 +32,7 @@ public class ProfesionalResource {
                     .build();
         }
     }
-
+}
 
     /*@GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,4 +52,4 @@ public class ProfesionalResource {
     }*/
 
 
-}
+

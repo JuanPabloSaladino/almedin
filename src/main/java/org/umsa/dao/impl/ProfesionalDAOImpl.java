@@ -28,13 +28,17 @@ public class ProfesionalDAOImpl implements ProfesionalDAO {
         return horariosDisponibles;}
 
     @Override
+    public boolean estaLibre(Long id) {
+       return profesionalRepository.estaLibre(id);
+    }
+
+    @Override
     public List<Profesional> getProfesionales() {
         return profesionalRepository.listAll();
     }
 
 	@Override
 	public Profesional getProfesionalById(Long id) {
-		// TODO Auto-generated method stub
 		return profesionalRepository.getProfesionalById(id);
 	}
 }

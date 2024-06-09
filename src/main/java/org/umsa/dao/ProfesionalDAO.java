@@ -11,6 +11,7 @@ public interface ProfesionalDAO {
     public Profesional getProfesionalById(Long id);
 
     public List <LocalDateTime> getTurnosDisponibles(Long id);
-    
+
+    public boolean estaLibre(Long id);
     
 }
