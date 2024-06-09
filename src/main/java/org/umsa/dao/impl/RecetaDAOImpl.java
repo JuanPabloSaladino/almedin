@@ -20,5 +20,5 @@ public class RecetaDAOImpl implements RecetaDAO {
 
     public Receta descargarReceta(Long idTurno,Long idUsuario){
       return recetaRepository.descargarReceta (idTurno,idUsuario);
-    };
+    }
 }

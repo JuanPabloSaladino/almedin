@@ -30,7 +30,7 @@ public class ProfesionalBOImpl implements ProfesionalBO {
 	@Override
 	public List<ProfesionalDTO> getProfesionales() {
 		List <Profesional>profesionales=profesionalDAO.getProfesionales();
-		List <ProfesionalDTO> profesionalesDTO= new ArrayList<ProfesionalDTO>();
+		List <ProfesionalDTO> profesionalesDTO= new ArrayList<>();
 
 		for(Profesional profesional:profesionales){
 
