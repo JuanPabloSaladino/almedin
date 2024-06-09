@@ -36,9 +36,9 @@ public class PlanResource {
     }
 
     // 2 endpoint revisar, modificar el dato que devuelve el repoPlan
-    @GET
+   /* @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getProfesionales(@PathParam("especialistas") Long id) {
+    public Response getProfesionales(@PathParam(value = "especialista") Long id) {
         try {
             return Response
                     .ok(planBO.getProfesionales(id))
@@ -51,6 +51,6 @@ public class PlanResource {
                     .entity("Error al obtener los especialistas")
                     .build();
         }
-    }
+    }*/
 
 }

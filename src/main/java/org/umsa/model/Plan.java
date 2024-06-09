@@ -27,10 +27,7 @@ public class Plan extends PanacheEntity {
     @OneToMany(mappedBy = "plan")
     private List<Socio> socios;
 
-	public List<Profesional> getProfesionales() {
-		// TODO Auto-generated method stub
-		return this.profesionales;
-	}
-
-	
+    public List<Profesional> getProfesionales() {
+        return this.profesionales;
+    }
 }

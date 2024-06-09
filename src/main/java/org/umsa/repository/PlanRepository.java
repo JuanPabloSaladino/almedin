@@ -13,8 +13,18 @@ import jakarta.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class PlanRepository implements PanacheRepository<Plan> {
 
-	
-	public List<Profesional> getProfesionales(Long id) {
+
+    public List<Profesional> getProfesionales(Long id) {
+
+        // firstResult en este contexto : es para obtener el primer plan que coincida con la consulta
+        //Plan plan = find("FROM Plan p LEFT JOIN FETCH p.profesional WHERE p.id = ?1", id).firstResult();
+        //return (plan != null) ? plan.getProfesional() : Collections.emptyList();
+        List<Profesional> profesionals = new ArrayList<>();
+        return profesionals;
+
+    }
+
+	/*public List<Profesional> getProfesionales(Long id) {
 
 		// firstResult en este contexto : es para obtener el primer plan que coincida con la consulta
 		//Plan plan = find("FROM Plan p LEFT JOIN FETCH p.profesional WHERE p.id = ?1", id).firstResult();
@@ -22,6 +32,6 @@ public class PlanRepository implements PanacheRepository<Plan> {
 		List<Profesional> profesionals = new ArrayList<>();
 		return profesionals;
 
-	}
+	}*/
 
 }
