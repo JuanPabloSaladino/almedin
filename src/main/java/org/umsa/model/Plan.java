@@ -30,6 +30,4 @@ public class Plan extends PanacheEntity {
     public List<Profesional> getProfesionales() {
         return this.profesionales;
     }
-
-
 }

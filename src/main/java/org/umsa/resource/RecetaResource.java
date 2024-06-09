@@ -6,6 +6,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.jboss.logging.Logger;
 import org.umsa.bo.RecetaBO;
+import org.umsa.dto.RecetaDTO;
 import org.umsa.model.Receta;
 
 @Path("/recetas")
@@ -36,23 +37,24 @@ public class RecetaResource {
 
 
     @GET
-    @Path ("/{id}")
+    @Path ("/descargar/{idTurno}/{idUsuario}")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response descargarReceta(@PathParam("id") Long idTurno, Long idUsuario) {
+    public Response descargarReceta(@PathParam("idTurno") Long idTurno, @PathParam("idUsuario") Long idUsuario) {
        try {
 
-           Receta receta = recetaBO.descargarReceta(idTurno,idUsuario);
+           RecetaDTO receta = recetaBO.descargarReceta(idTurno,idUsuario);
 
            return Response
                    .ok(receta)
                    .build();
 
        }catch (Exception e){
-           logger.error("error al descargar receta ",e);
+           logger.error("error al descargar receta : ",e);
 
            return Response
                    .status(Response.Status.INTERNAL_SERVER_ERROR)
-                   .entity("error al descargar receta ")
+                   .entity("error al descargar receta : "+ e.getMessage())
                    .build();
 
        }
