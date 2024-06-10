@@ -50,11 +50,18 @@ public class TurnoDAOImpl implements TurnoDAO {
 
     @Override
     public void actualizarTurno(Long turnoID, Turno turno) throws PersistenceException {
-        logger.info("Se actualiza el turno con ID: " + turnoID);
         Turno turnoEncontrado = turnoRepository.findById(turnoID);
 
         if (turnoEncontrado != null) {
-            turnoRepository.persist(turno);
+            logger.info("Se actualiza el turno con ID: " + turnoID);
+
+            turnoEncontrado.setFechaInicio(turno.getFechaInicio());
+            turnoEncontrado.setProfesional(turno.getProfesional());
+            turnoEncontrado.setSocio(turno.getSocio());
+            turnoEncontrado.setMotivoDeConsulta(turno.getMotivoDeConsulta());
+            turnoEncontrado.setOcupado(turno.isOcupado());
+
+            turnoRepository.persist(turnoEncontrado);
         } else {
             throw new PersistenceException("El turno no existe");
         }

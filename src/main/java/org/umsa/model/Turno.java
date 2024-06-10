@@ -20,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 public class Turno extends PanacheEntity {
-    private boolean cancelado;    //preguntar, como lo ve pq pasaria de false a true y devuelta a false , a menos que sea cancelado definitivo (baja del turno) 
+    private boolean cancelado;
 
     private LocalDateTime fechaInicio;
 
