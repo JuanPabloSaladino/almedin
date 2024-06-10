@@ -92,15 +92,20 @@ public class TurnoBOImpl implements TurnoBO {
 
             Profesional profesional = profesionalDAO.getProfesionalById(turnoDTO.getProfesionalID());
 
-            if (profesional != null) {
-                turno.setProfesional(profesional);
-            } else {
+            if (profesional == null) {
                 throw new Exception("Profesional no encontrado");
+            }
+
+            Socio socio = socioDAO.getSocioById(turnoDTO.getSocioID());
+
+            if (socio == null) {
+                throw new Exception("Socio no encontrado");
             }
 
             turno.setFechaInicio(turnoDTO.getFechaTurno());
             turno.setProfesional(profesional);
-            turno.setMotivoDeConsulta(turno.getMotivoDeConsulta());
+            turno.setSocio(socio);
+            turno.setMotivoDeConsulta(turnoDTO.getMotivoDeConsultaTurno());
             turno.setOcupado(true);
 
             turnoDAO.actualizarTurno(turnoID, turno);

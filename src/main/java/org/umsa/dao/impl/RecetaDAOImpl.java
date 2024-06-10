@@ -17,4 +17,8 @@ public class RecetaDAOImpl implements RecetaDAO {
     public List<Receta> getRecetas() {
         return recetaRepository.listAll();
     }
+
+    public Receta descargarReceta(Long idTurno,Long idUsuario){
+      return recetaRepository.descargarReceta (idTurno,idUsuario);
+    }
 }

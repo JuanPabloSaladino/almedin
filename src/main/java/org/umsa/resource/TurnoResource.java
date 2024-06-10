@@ -10,6 +10,8 @@ import org.jboss.logging.Logger;
 import org.umsa.bo.TurnoBO;
 import org.umsa.dto.TurnoDTO;
 
+import java.util.UUID;
+
 @Path("/turnos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
