@@ -23,26 +23,29 @@ VALUES (1, 46, 3, 1, 'Picapiedra', '12345678', 'picapiedra@email.com', 'Pedro');
 
 -- Insertar en la tabla Turno
 INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
-VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 100, 1, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 100');
+VALUES (0, 1, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 100, 1, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 100');
 
 INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
-VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 101, 1, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 101');
+VALUES (0, 1, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 101, 1, 2, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 101');
 
 INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
-VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 102, 1, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 102');
+VALUES (0, 1, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 102, 2, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 102');
 
 INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
-VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 103, 1, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 103');
+VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 103, 1, null, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 103');
+
+INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
+VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 104, 2, null, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', '');
+
+INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
+VALUES (0, 0, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 105, 3, null, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', '');
 
 -- Insertar en la tabla Receta
 INSERT INTO almedin.receta (contenido, fechaCreacion, id, hash, turno_id, profesional_id, socio_id)
 VALUES ('Contenido de la receta 1', '2024-06-08 12:00:00', 1, 'a1b2c3d4-e5f6-7890-ghij', 100, 1, 1);
 
 INSERT INTO almedin.receta (contenido, fechaCreacion, id, hash, turno_id, profesional_id, socio_id)
-VALUES ('Contenido de la receta 2', '2024-06-08 12:15:00.000000', 2, 'b2c3d4e5-f678-90gh-ijkl', 102, 1, 2);
+VALUES ('Contenido de la receta 2', '2024-06-08 12:15:00.000000', 2, 'b2c3d4e5-f678-90gh-ijkl', 101, 1, 2);
 
 INSERT INTO almedin.receta (contenido, fechaCreacion, id, hash, turno_id, profesional_id, socio_id)
-VALUES ('Contenido de la receta 3', '2024-06-08 12:30:00.000000', 3, 'c3d4e5f6-7890-ghij-klmn', 103, 2, 3);
-
-INSERT INTO almedin.receta (contenido, fechaCreacion, id, hash, turno_id, profesional_id, socio_id)
-VALUES ('Contenido de la receta 4', '2024-06-08 12:45:00.000000', 4, 'd4e5f678-90gh-ijkl-mnop', 101, 3, 1);
+VALUES ('Contenido de la receta 3', '2024-06-08 12:30:00.000000', 3, 'c3d4e5f6-7890-ghij-klmn', 102, 2, 1);
