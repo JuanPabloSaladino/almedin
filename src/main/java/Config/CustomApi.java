@@ -1,4 +1,4 @@
-package org.umsa.model;
+package Config;
 
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
@@ -13,10 +13,10 @@ import jakarta.ws.rs.core.Application;
                 @Tag(name="gasket", description="Operations related to gaskets")
         },
         info = @Info(
-                title="Example API",
+                title="API ObraSocial test",
                 version = "1.0.1",
                 contact = @Contact (
-                        name = "Example API Support",
+                        name = "API UMSA OBRA-SOCIAL",
                         url = "http://exampleurl.com/contact",
                         email = "techsupport@example.com"),
                 license = @License(
