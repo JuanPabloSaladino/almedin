@@ -1,6 +1,7 @@
 package org.umsa.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.swagger.annotations.ApiModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @Setter
+@ApiModel
 public class Receta extends PanacheEntity {
     private String contenido;
 
