@@ -29,7 +29,7 @@ public class RecetaBOImpl implements RecetaBO {
         try {
             Receta receta = recetaDAO.descargarReceta(idTurno,idUsuario);
 
-            if(receta==null) throw new RuntimeException("receta Nula, ESTO SE DETUVO EN LA capa de BO");
+            if(receta==null) throw new RuntimeException("receta Nulaa");
 
             RecetaDTO recetaDTO = new RecetaDTO();
 

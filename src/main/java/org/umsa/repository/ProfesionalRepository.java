@@ -20,17 +20,14 @@ public class ProfesionalRepository implements PanacheRepository<Profesional> {
 
 	}
 
-	/*String query = "SELECT t FROM Turno t WHERE t.id=id AND t.ocupado = false AND t.cancelado = false";
-		return getEntityManager().createQuery(query, Turno.class).getResultList();*/
-	/*String query = "SELECT t.fechaInicio FROM Turno t WHERE t.profesional.id = ?1 AND t.ocupado = false AND t.cancelado = false";
-		return list(query,id);*/
-
 	public Profesional getProfesionalById(Long id) {
 		
 		return Profesional.findById(id);
 		
 	}
 
+	// esto va a verificar si el medico esta libre, como? : esto busca en la lista de turnos del medico y
+	// si algun turno llegar a tener "ocupado=false" significa que ese turno esta libre, por ende el medico esta disponible y devuelve TRUE
 	public boolean estaLibre(Long id){
 		String query = "SELECT t FROM Turno t WHERE t.profesional.id = :id AND t.ocupado = false AND t.cancelado = false";
 		return !getEntityManager().createQuery(query, Turno.class)
@@ -39,7 +36,5 @@ public class ProfesionalRepository implements PanacheRepository<Profesional> {
                 .getResultList().isEmpty();
 	}
 
-	/*String query = "SELECT t FROM Turno t WHERE t.profesional.id = ?1 AND t.ocupado = false AND t.cancelado = false";
-		return find(query, id).firstResult() != null;*/
 	
 }

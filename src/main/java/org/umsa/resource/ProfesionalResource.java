@@ -4,6 +4,9 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.jboss.logging.Logger;
 import org.umsa.bo.ProfesionalBO;
 
@@ -18,6 +21,11 @@ public class ProfesionalResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "obtiene todos los profesionales Disponibles", description="retorna todos los profesionales que tengan almenos un turno disponible, RETORNA UN List<DTOProfesional>")
+    @APIResponses(value ={
+            @APIResponse(responseCode = "200", description = "Solicitud exitosa"),
+            @APIResponse(responseCode = "500",description = "Error interno del servidor")
+    })
     public Response getProfesionales() {
         try {
             return Response

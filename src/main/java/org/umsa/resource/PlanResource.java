@@ -4,6 +4,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.jboss.logging.Logger;
 import org.umsa.bo.PlanBO;
 
@@ -19,6 +20,7 @@ public class PlanResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "obtiene todos los planes", description="retorna todos los planes EXISTENTES al momento")
     public Response getPlanes() {
         try {
             return Response
@@ -35,7 +37,7 @@ public class PlanResource {
         }
     }
 
-    // 2 endpoint revisar, modificar el dato que devuelve el repoPlan
+
    /* @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProfesionales(@PathParam(value = "especialista") Long id) {

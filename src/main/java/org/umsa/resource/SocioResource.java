@@ -7,6 +7,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.jboss.logging.Logger;
 import org.umsa.bo.SocioBO;
 
@@ -21,6 +22,7 @@ public class SocioResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "obtiene todos los socios", description="retorna todos los socios registrados")
     public Response getSocios() {
         try {
             return Response
