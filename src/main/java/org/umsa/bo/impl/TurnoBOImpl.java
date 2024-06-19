@@ -13,6 +13,7 @@ import org.umsa.model.Profesional;
 import org.umsa.model.Socio;
 import org.umsa.model.Turno;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
@@ -29,8 +30,25 @@ public class TurnoBOImpl implements TurnoBO {
     ProfesionalDAO profesionalDAO;
 
     @Override
-    public List<Turno> getTurnos() {
-        return turnoDAO.getTurnos();
+    public List<TurnoDTO> getTurnos() {
+        List<TurnoDTO> turnos = new ArrayList<>();
+
+        for (Turno turno : turnoDAO.getTurnos()) {
+            TurnoDTO turnoDTO = new TurnoDTO();
+
+            turnoDTO.setID(turno.id);
+            turnoDTO.setMotivoDeConsultaTurno(turno.getMotivoDeConsulta());
+            turnoDTO.setProfesionalID(turno.getProfesional().id);
+            turnoDTO.setFechaTurno(turno.getFechaInicio());
+
+            if (turno.getSocio() != null) {
+                turnoDTO.setSocioID(turno.getSocio().id);
+            }
+
+            turnos.add(turnoDTO);
+        }
+
+        return turnos;
     }
 
     @Override

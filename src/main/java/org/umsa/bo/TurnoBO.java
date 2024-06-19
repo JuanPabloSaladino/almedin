@@ -7,7 +7,7 @@ import org.umsa.model.Turno;
 import java.util.List;
 
 public interface TurnoBO {
-    public List<Turno> getTurnos();
+    public List<TurnoDTO> getTurnos();
 
     public Long crearTurno(TurnoDTO turnoDTO) throws Exception;
 

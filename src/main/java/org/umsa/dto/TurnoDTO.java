@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Setter
 public class TurnoDTO {
+    private Long ID;
+
     private Long socioID;
 
     private LocalDateTime fechaTurno;
