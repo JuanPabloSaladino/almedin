@@ -10,6 +10,7 @@ import org.umsa.bo.impl.TurnoBOImpl;
 import org.umsa.dao.ProfesionalDAO;
 import org.umsa.dao.SocioDAO;
 import org.umsa.dao.TurnoDAO;
+import org.umsa.dto.GetTurnoDTO;
 import org.umsa.dto.TurnoDTO;
 import org.umsa.model.Profesional;
 import org.umsa.model.Socio;
@@ -68,7 +69,7 @@ public class TurnoBOTest {
     public void testGetTurnos() {
         when(turnoDAO.getTurnos()).thenReturn(Collections.singletonList(turno));
 
-        List<TurnoDTO> turnos = turnoBO.getTurnos();
+        List<GetTurnoDTO> turnos = turnoBO.getTurnos();
 
         assertNotNull(turnos);
     }

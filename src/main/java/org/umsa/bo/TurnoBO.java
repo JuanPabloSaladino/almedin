@@ -1,13 +1,14 @@
 package org.umsa.bo;
 
 import jakarta.persistence.PersistenceException;
+import org.umsa.dto.GetTurnoDTO;
 import org.umsa.dto.TurnoDTO;
 import org.umsa.model.Turno;
 
 import java.util.List;
 
 public interface TurnoBO {
-    public List<TurnoDTO> getTurnos();
+    public List<GetTurnoDTO> getTurnos();
 
     public Long crearTurno(TurnoDTO turnoDTO) throws Exception;
 
