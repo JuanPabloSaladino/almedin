@@ -37,6 +37,7 @@ public class ProfesionalBOImpl implements ProfesionalBO {
 			if(estaLibre(profesional.id)){
 
 			ProfesionalDTO nuevoDTO = new ProfesionalDTO();
+			nuevoDTO.setId(profesional.id);
 			nuevoDTO.setNombreMedico(profesional.getNombre()+" "+profesional.getApellido());
 			nuevoDTO.setEspecialidad(profesional.getEspecialidad());
 			nuevoDTO.setUbicacion(profesional.getUbicacion());
