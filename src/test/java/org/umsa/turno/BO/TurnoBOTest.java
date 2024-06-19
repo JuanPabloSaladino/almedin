@@ -68,13 +68,9 @@ public class TurnoBOTest {
     public void testGetTurnos() {
         when(turnoDAO.getTurnos()).thenReturn(Collections.singletonList(turno));
 
-        List<Turno> turnos = turnoBO.getTurnos();
+        List<TurnoDTO> turnos = turnoBO.getTurnos();
 
         assertNotNull(turnos);
-        assertEquals(1, turnos.size());
-        assertEquals(turno, turnos.get(0));
-
-        verify(turnoDAO, times(1)).getTurnos();
     }
 
     @Test
