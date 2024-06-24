@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceException;
 import org.jboss.logging.Logger;
 import org.umsa.dao.TurnoDAO;
+import org.umsa.dto.TurnoDTO;
 import org.umsa.model.Turno;
 import org.umsa.repository.TurnoRepository;
 
@@ -20,6 +21,28 @@ public class TurnoDAOImpl implements TurnoDAO {
     @Override
     public List<Turno> getTurnos() {
         return turnoRepository.listAll();
+    }
+
+    @Override
+    public TurnoDTO getTurnoByID(Long ID) {
+        Turno turno = turnoRepository.findById(ID);
+
+        TurnoDTO turnoDTO = new TurnoDTO();
+        turnoDTO.setFechaTurno(turno.getFechaInicio());
+        turnoDTO.setMotivoDeConsultaTurno(turno.getMotivoDeConsulta());
+        turnoDTO.setId(turno.id);
+
+
+        if(turno.getSocio() != null){
+            turnoDTO.setSocioID(turno.getSocio().id);
+        }
+
+        if(turno.getProfesional() != null){
+            turnoDTO.setProfesionalID(turno.getProfesional().id);
+            turnoDTO.setNombreProfesional(turno.getProfesional().getApellido() + ", " + turno.getProfesional().getNombre());
+        }
+
+        return turnoDTO;
     }
 
     @Override

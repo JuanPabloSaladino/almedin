@@ -10,6 +10,8 @@ import java.util.List;
 public interface TurnoBO {
     public List<GetTurnoDTO> getTurnos();
 
+    public TurnoDTO getTurnoByID(Long ID);
+
     public Long crearTurno(TurnoDTO turnoDTO) throws Exception;
 
     public void eliminarTurno(Long turnoID) throws Exception;

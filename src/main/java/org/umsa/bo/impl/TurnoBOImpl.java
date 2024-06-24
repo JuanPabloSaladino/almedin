@@ -55,6 +55,11 @@ public class TurnoBOImpl implements TurnoBO {
     }
 
     @Override
+    public TurnoDTO getTurnoByID(Long ID) {
+        return turnoDAO.getTurnoByID(ID);
+    }
+
+    @Override
     public Long crearTurno(TurnoDTO turnoDTO) throws Exception {
         try {
             Turno turno = new Turno();

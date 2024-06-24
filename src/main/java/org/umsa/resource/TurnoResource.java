@@ -41,6 +41,24 @@ public class TurnoResource {
         }
     }
 
+    @GET
+    @Path("/{turnoId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getTurnoByID(@PathParam("turnoId") Long turnoId) {
+        try {
+            return Response
+                    .ok(turnoBO.getTurnoByID(turnoId))
+                    .build();
+        } catch (Exception e) {
+            logger.error("Error al obtener turno", e);
+
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error al obtener turno")
+                    .build();
+        }
+    }
+
     @POST
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
