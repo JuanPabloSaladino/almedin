@@ -23,4 +23,6 @@ public class TurnoDTO {
     private Long profesionalID;
 
     private String motivoDeConsultaTurno;
+
+    private Boolean cancelado;
 }

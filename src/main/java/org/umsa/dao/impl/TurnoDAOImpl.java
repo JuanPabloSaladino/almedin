@@ -31,7 +31,7 @@ public class TurnoDAOImpl implements TurnoDAO {
         turnoDTO.setFechaTurno(turno.getFechaInicio());
         turnoDTO.setMotivoDeConsultaTurno(turno.getMotivoDeConsulta());
         turnoDTO.setId(turno.id);
-
+        turnoDTO.setCancelado(turno.isCancelado());
 
         if(turno.getSocio() != null){
             turnoDTO.setSocioID(turno.getSocio().id);
