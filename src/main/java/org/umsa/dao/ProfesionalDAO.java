@@ -1,5 +1,6 @@
 package org.umsa.dao;
 
+import org.umsa.dto.ProfesionalDTO;
 import org.umsa.model.Profesional;
 
 import java.time.LocalDateTime;
@@ -9,6 +10,8 @@ public interface ProfesionalDAO {
     public List<Profesional> getProfesionales();
     
     public Profesional getProfesionalById(Long id);
+
+    public ProfesionalDTO getProfesionalDTOById(Long id);
 
     public List <LocalDateTime> getTurnosDisponibles(Long id);
 

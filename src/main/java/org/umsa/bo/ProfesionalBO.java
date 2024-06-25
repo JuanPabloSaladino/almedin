@@ -10,6 +10,8 @@ public interface ProfesionalBO {
 	
 	public Profesional getProfesionalById(Long id);
 
+	public ProfesionalDTO getProfesionalDTOById(Long id);
+
 	public List<ProfesionalDTO> getProfesionales();
 
 	public boolean estaLibre(Long id);

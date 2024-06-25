@@ -21,10 +21,10 @@ public class ProfesionalResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "obtiene todos los profesionales Disponibles", description="retorna todos los profesionales que tengan almenos un turno disponible, RETORNA UN List<DTOProfesional>")
-    @APIResponses(value ={
+    @Operation(summary = "obtiene todos los profesionales Disponibles", description = "retorna todos los profesionales que tengan almenos un turno disponible, RETORNA UN List<DTOProfesional>")
+    @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Solicitud exitosa"),
-            @APIResponse(responseCode = "500",description = "Error interno del servidor")
+            @APIResponse(responseCode = "500", description = "Error interno del servidor")
     })
     public Response getProfesionales() {
         try {
@@ -40,24 +40,43 @@ public class ProfesionalResource {
                     .build();
         }
     }
-}
 
-   /* @GET
+    @GET
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getProfesionalById(@PathParam("id") Long idUsuario) {
+    public Response getProfesionalById(@PathParam("id") Long profesionalID) {
         try {
             return Response
-                    .ok("PROBANDINGGGGGG")
+                    .ok(profesionalBO.getProfesionalById(profesionalID))
                     .build();
         } catch (Exception e) {
-            logger.error
+            logger.error("Error al obtener profesionales", e);
 
             return Response
                     .status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Error al obtener profesionales")
                     .build();
         }
-    }*/
+    }
+
+    @GET
+    @Path("/dto/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getProfesionalDTOById(@PathParam("id") Long profesionalID) {
+        try {
+            return Response
+                    .ok(profesionalBO.getProfesionalDTOById(profesionalID))
+                    .build();
+        } catch (Exception e) {
+            logger.error("Error al obtener profesionales", e);
+
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error al obtener profesionales")
+                    .build();
+        }
+    }
+}
 
 
 

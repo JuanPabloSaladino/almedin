@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.umsa.dao.ProfesionalDAO;
+import org.umsa.dto.ProfesionalDTO;
 import org.umsa.model.Profesional;
 import org.umsa.model.Turno;
 import org.umsa.repository.ProfesionalRepository;
@@ -39,6 +40,19 @@ public class ProfesionalDAOImpl implements ProfesionalDAO {
 
 	@Override
 	public Profesional getProfesionalById(Long id) {
-		return profesionalRepository.getProfesionalById(id);
+		return profesionalRepository.findById(id);
 	}
+
+    @Override
+    public ProfesionalDTO getProfesionalDTOById(Long id) {
+        Profesional profesional = profesionalRepository.getProfesionalById(id);
+
+        ProfesionalDTO profesionalDTO = new ProfesionalDTO();
+        profesionalDTO.setId(profesional.id);
+        profesionalDTO.setEspecialidad(profesional.getEspecialidad());
+        profesionalDTO.setNombreMedico(profesional.getApellido() + ", " + profesional.getNombre());
+        profesionalDTO.setUbicacion(profesional.getUbicacion());
+
+        return profesionalDTO;
+    }
 }

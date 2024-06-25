@@ -1,5 +1,18 @@
 package org.umsa.dto;
 
-public class SocioDTO {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@AllArgsConstructor
+@Getter
+@NoArgsConstructor
+@Setter
+public class SocioDTO {
+    private Long id;
+
+    private String email;
+
+    private String nombre;
 }

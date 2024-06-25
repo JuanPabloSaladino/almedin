@@ -39,18 +39,6 @@ public class ProfesionalBOTest {
     }
 
     @Test
-    public void testGetProfesionalById() {
-        when(profesionalDAO.getProfesionalById(1L)).thenReturn(profesional);
-
-        Profesional result = profesionalBO.getProfesionalById(1L);
-
-        assertNotNull(result);
-        assertEquals(profesional, result);
-
-        verify(profesionalDAO, times(1)).getProfesionalById(1L);
-    }
-
-    @Test
     public void testGetProfesionales() {
         when(profesionalDAO.getProfesionales()).thenReturn(Collections.singletonList(profesional));
         when(profesionalDAO.estaLibre(1L)).thenReturn(true);

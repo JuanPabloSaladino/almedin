@@ -17,15 +17,15 @@ public class ProfesionalBOImpl implements ProfesionalBO {
     @Inject
     ProfesionalDAO profesionalDAO;
 
- 
-
 	@Override
 	public Profesional getProfesionalById(Long id) {
-
 		return profesionalDAO.getProfesionalById(id);
 	}
 
-
+	@Override
+	public ProfesionalDTO getProfesionalDTOById(Long id) {
+		return profesionalDAO.getProfesionalDTOById(id);
+	}
 
 	@Override
 	public List<ProfesionalDTO> getProfesionales() {

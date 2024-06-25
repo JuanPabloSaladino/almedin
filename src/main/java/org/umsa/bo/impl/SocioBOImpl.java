@@ -4,7 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.umsa.bo.SocioBO;
 import org.umsa.dao.SocioDAO;
-import org.umsa.model.Socio;
+import org.umsa.dto.SocioDTO;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class SocioBOImpl implements SocioBO {
     SocioDAO socioDAO;
 
     @Override
-    public List<Socio> getSocios() {
+    public List<SocioDTO> getSocios() {
         return socioDAO.getSocios();
     }
 }
