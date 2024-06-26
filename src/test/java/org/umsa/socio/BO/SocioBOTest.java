@@ -7,9 +7,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.umsa.dao.SocioDAO;
 import org.umsa.dao.TurnoDAO;
+import org.umsa.dto.SocioDTO;
 import org.umsa.model.Plan;
 import org.umsa.model.Profesional;
-import org.umsa.model.Socio;
 import org.umsa.model.Turno;
 
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ public class SocioBOTest {
     @Mock
     private TurnoDAO turnoDAO;
 
-    private Socio socio1;
-    private Socio socio2;
+    private SocioDTO socio1;
+    private SocioDTO socio2;
 
     @BeforeEach
     public void setup() {
@@ -65,24 +65,12 @@ public class SocioBOTest {
         turnos.add(turno1);
         turnos.add(turno2);
 
-        socio1 = new Socio();
-        socio1.setAutorizado(true);
-        socio1.setDocumento("11222333");
-        socio1.setEdad(30);
-        socio1.setApellido("Mauri");
-        socio1.setNombre("Macricio");
-        socio1.setPlan(plan);
-        socio1.setTurnos(turnos);
+        socio1 = new SocioDTO();
         socio1.setEmail("macriciomauri@gmail.com");
+        socio1.setNombre("Macricio" + ", " + "Mauri");
 
-        socio2 = new Socio();
-        socio2.setAutorizado(true);
-        socio2.setDocumento("22333444");
-        socio2.setEdad(35);
-        socio2.setApellido("Perez");
-        socio2.setNombre("Juan");
-        socio2.setPlan(plan);
-        socio2.setTurnos(turnos);
+        socio2 = new SocioDTO();
+        socio2.setNombre("Perez" + ", " + "Juan");
         socio2.setEmail("juanperez@gmail.com");
     }
 
@@ -90,7 +78,7 @@ public class SocioBOTest {
     public void testGetSocios() {
         when(socioDAO.getSocios()).thenReturn(List.of(socio1, socio2));
 
-        List<Socio> socios = socioDAO.getSocios();
+        List<SocioDTO> socios = socioDAO.getSocios();
 
         assertNotNull(socios);
         assertEquals(2, socios.size());
