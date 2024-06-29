@@ -42,6 +42,7 @@ public class TurnoBOImpl implements TurnoBO {
             turnoDTO.setProfesionalID(turno.getProfesional().id);
             turnoDTO.setFechaTurno(turno.getFechaInicio());
             turnoDTO.setNombreProfesional(turno.getProfesional().getApellido() + ", " + turno.getProfesional().getNombre());
+            turnoDTO.setCancelado(turno.isCancelado());
 
             if (turno.getSocio() != null) {
                 turnoDTO.setSocioID(turno.getSocio().id);
@@ -133,6 +134,7 @@ public class TurnoBOImpl implements TurnoBO {
             turno.setSocio(socio);
             turno.setMotivoDeConsulta(turnoDTO.getMotivoDeConsultaTurno());
             turno.setOcupado(true);
+            turno.setCancelado(turnoDTO.getCancelado());
 
             turnoDAO.actualizarTurno(turnoID, turno);
         } catch (PersistenceException e) {
