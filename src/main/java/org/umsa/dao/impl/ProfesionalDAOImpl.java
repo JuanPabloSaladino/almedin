@@ -52,6 +52,7 @@ public class ProfesionalDAOImpl implements ProfesionalDAO {
         profesionalDTO.setEspecialidad(profesional.getEspecialidad());
         profesionalDTO.setNombreMedico(profesional.getApellido() + ", " + profesional.getNombre());
         profesionalDTO.setUbicacion(profesional.getUbicacion());
+        profesionalDTO.setHorarios(this.getTurnosDisponibles(profesional.id));
 
         return profesionalDTO;
     }
