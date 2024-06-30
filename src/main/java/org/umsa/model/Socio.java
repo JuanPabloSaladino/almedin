@@ -45,4 +45,10 @@ public class Socio extends PanacheEntity {
     @ApiModelProperty(notes = "historial de recetas medicas, aqui se guardan todas las recetas otorgadas al Socio desde que es dado de alta en la APP")
     @OneToMany(mappedBy = "socio")
     private List<Receta> recetas;
+
+
+    private String contrasenia;
+
+    @ApiModelProperty(notes = "ROL del Socio", example = "paciente o administrador")
+    private String rol;
 }
