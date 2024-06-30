@@ -12,14 +12,26 @@ INSERT INTO almedin.profesional (id, apellido, documento, email, especialidad, m
 VALUES (3, 'Potter', '19852647', 'HarryPotter3@email.com', 'Traumatólogo', '98745', 'Harry', 'Ubicación 3');
 
 -- Insertar en la tabla Socio
-INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre)
-VALUES (1, 30, 1, 1, 'Benitez', '34512300', 'benitez@email.com', 'Victor');
+INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)
+VALUES (1, 30, 1, 1, 'Benitez', '34512300', 'benitez@email.com', 'Victor',1234,'USUARIO');
 
-INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre)
-VALUES (1, 22, 2, 1, 'Juarez', '87654321', 'juarez@email.com', 'manuel');
+INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)
+VALUES (1, 22, 2, 1, 'Juarez', '87654321', 'juarez@email.com', 'manuel',12345,'USUARIO');
 
-INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre)
-VALUES (1, 46, 3, 1, 'Picapiedra', '12345678', 'picapiedra@email.com', 'Pedro');
+INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)
+VALUES (1, 46, 3, 1, 'Picapiedra', '12345678', 'picapiedra@email.com', 'Pedro',12345,'USUARIO');
+
+--
+
+INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)
+VALUES (1, 88, 4, 1, 'AdminApellido', '11111111', 'ADMINISTRADOR@email.com', 'AdminNOMBRE',123456,'ADMINISTRADOR');
+
+
+
+
+
+
+
 
 -- Insertar en la tabla Turno
 INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
