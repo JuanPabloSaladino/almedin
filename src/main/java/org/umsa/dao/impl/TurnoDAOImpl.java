@@ -83,6 +83,7 @@ public class TurnoDAOImpl implements TurnoDAO {
             turnoEncontrado.setSocio(turno.getSocio());
             turnoEncontrado.setMotivoDeConsulta(turno.getMotivoDeConsulta());
             turnoEncontrado.setOcupado(turno.isOcupado());
+            turnoEncontrado.setCancelado(turno.isCancelado());
 
             turnoRepository.persist(turnoEncontrado);
         } else {

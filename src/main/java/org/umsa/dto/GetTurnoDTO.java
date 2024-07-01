@@ -25,4 +25,6 @@ public class GetTurnoDTO {
     private String nombreProfesional;
 
     private String motivoDeConsultaTurno;
+
+    private Boolean cancelado;
 }
