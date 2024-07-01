@@ -23,6 +23,10 @@ public class TurnoDAOImpl implements TurnoDAO {
         return turnoRepository.listAll();
     }
 
+    public List<Turno> getTurnosPorUsuario(Long idUsuario) {
+        return turnoRepository.getTurnosPorUsuario(idUsuario);
+    }
+
     @Override
     public TurnoDTO getTurnoByID(Long ID) {
         Turno turno = turnoRepository.findById(ID);

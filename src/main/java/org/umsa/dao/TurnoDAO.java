@@ -16,4 +16,6 @@ public interface TurnoDAO {
     public void eliminarTurno(Long turnoID) throws PersistenceException;
 
     public void actualizarTurno(Long turnoID, Turno turno) throws PersistenceException;
+
+    public List<Turno>getTurnosPorUsuario(Long idUsuario);
 }

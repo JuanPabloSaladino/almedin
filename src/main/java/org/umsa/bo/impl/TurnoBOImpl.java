@@ -55,6 +55,38 @@ public class TurnoBOImpl implements TurnoBO {
         return turnos;
     }
 
+
+    public List<GetTurnoDTO> getTurnosPorUsuario(Long idUsuario,String rol) {
+        List<GetTurnoDTO> turnosDTO = new ArrayList<>();
+
+        List<Turno>turnos = (rol.equalsIgnoreCase("ADMINISTRADOR")) ? turnoDAO.getTurnos():turnoDAO.getTurnosPorUsuario(idUsuario);
+
+        for (Turno turno : turnos) {
+            GetTurnoDTO turnoDTO = new GetTurnoDTO();
+
+            turnoDTO.setID(turno.id);
+            turnoDTO.setMotivoDeConsultaTurno(turno.getMotivoDeConsulta());
+            turnoDTO.setProfesionalID(turno.getProfesional().id);
+            turnoDTO.setFechaTurno(turno.getFechaInicio());
+            turnoDTO.setNombreProfesional(turno.getProfesional().getApellido() + ", " + turno.getProfesional().getNombre());
+            turnoDTO.setCancelado(turno.isCancelado());
+
+
+            //esto es pór que podian haber turnos no asignados, asi manejabamos los turnos
+            if (turno.getSocio() != null) {
+                turnoDTO.setSocioID(turno.getSocio().id);
+                turnoDTO.setNombreSocio(turno.getSocio().getApellido() + ", " + turno.getSocio().getNombre());
+            }
+
+            turnosDTO.add(turnoDTO);
+        }
+
+        return turnosDTO;
+    }
+
+
+
+
     @Override
     public TurnoDTO getTurnoByID(Long ID) {
         return turnoDAO.getTurnoByID(ID);

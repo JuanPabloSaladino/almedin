@@ -24,12 +24,31 @@ public class TurnoResource {
     @Inject
     TurnoBO turnoBO;
 
-    @GET
+    /*@GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTurnos() {
         try {
             return Response
                     .ok(turnoBO.getTurnos())
+                    .build();
+        } catch (Exception e) {
+            logger.error("Error al obtener turnos", e);
+
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error al obtener turnos")
+                    .build();
+        }
+    }*/
+
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Obtiene los turnos por rol ", description="obtiene los turnos dependiendo del rol que se le mande con el id de usuario")
+    public Response getTurnos(@QueryParam("idUsuario") Long idUsuario,@QueryParam("rol")String rol) {
+        try {
+            return Response
+                    .ok(turnoBO.getTurnosPorUsuario(idUsuario,rol))
                     .build();
         } catch (Exception e) {
             logger.error("Error al obtener turnos", e);

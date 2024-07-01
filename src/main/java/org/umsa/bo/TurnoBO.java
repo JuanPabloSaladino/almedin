@@ -17,4 +17,6 @@ public interface TurnoBO {
     public void eliminarTurno(Long turnoID) throws Exception;
 
     public void actualizarTurno(Long turnoID, TurnoDTO turnoDTO) throws Exception;
+
+    public List<GetTurnoDTO> getTurnosPorUsuario(Long idUsuario, String rol);
 }
