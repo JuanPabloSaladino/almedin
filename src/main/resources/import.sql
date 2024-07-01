@@ -27,12 +27,6 @@ INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, e
 VALUES (1, 88, 4, 1, 'AdminApellido', '11111111', 'ADMINISTRADOR@email.com', 'AdminNOMBRE',123456,'ADMINISTRADOR');
 
 
-
-
-
-
-
-
 -- Insertar en la tabla Turno
 INSERT INTO almedin.turno (cancelado, ocupado, fechaInicio, fechaCreacion, id, profesional_id, socio_id, hash, motivoDeConsulta)
 VALUES (0, 1, '2024-06-08 12:00:00.000000', '2024-06-08 11:46:49.054402', 100, 1, 1, '5e2b6b4a-a913-4d85-ac35-6524e7c0fa35', 'Motivo de la consulta del turno 100');

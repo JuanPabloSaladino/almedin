@@ -19,12 +19,14 @@ public class LoginResource {
     LoginBO loginBO;
 
 
-
     @GET
     @Transactional
     @Produces (MediaType.APPLICATION_JSON)
-    public Response login(@QueryParam("login") String email, @QueryParam("password") String password) {
+    public Response login(@QueryParam("email") String email, @QueryParam("password") String password) {
         try {
+
+            logger.info("Email recibido: " + email);
+            logger.info("Password recibido: " + password);
 
             return Response
                     .ok(loginBO.login(email, password))
