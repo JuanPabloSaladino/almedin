@@ -20,9 +20,10 @@ public class SocioDAOImpl implements SocioDAO {
     public List<SocioDTO> getSocios() {
         List<SocioDTO> sociosDTO = new ArrayList<>();
 
-        for (Socio socio : socioRepository.listAll()) {
-            SocioDTO socioDTO = new SocioDTO();
+        for (Socio socio : socioRepository.buscarSocios()) {
 
+
+            SocioDTO socioDTO = new SocioDTO();
             socioDTO.setNombre(socio.getApellido() + ", " + socio.getNombre());
             socioDTO.setEmail(socio.getEmail());
             socioDTO.setId(socio.id);
@@ -33,8 +34,28 @@ public class SocioDAOImpl implements SocioDAO {
         return sociosDTO;
     }
 
+    // este metodo devuelve una lista con 1 (UN) solo integrante , o devuelve una listaVacia
+    public List<SocioDTO> getSocioUnico(Long idUser) {
+        List<SocioDTO> sociosDTO = new ArrayList<>();
+        Socio socio = socioRepository.findById(idUser);
+        SocioDTO socioDTO = new SocioDTO();
+
+        if(socio !=null ) {
+            socioDTO.setNombre(socio.getApellido() + ", " + socio.getNombre());
+            socioDTO.setEmail(socio.getEmail());
+            socioDTO.setId(socio.id);
+
+            sociosDTO.add(socioDTO);
+
+        }
+
+
+        return sociosDTO;
+    }
+
     @Override
     public Socio getSocioById(Long id) {
         return socioRepository.findById(id);
     }
+
 }

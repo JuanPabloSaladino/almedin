@@ -13,8 +13,16 @@ public class SocioBOImpl implements SocioBO {
     @Inject
     SocioDAO socioDAO;
 
+    /*
     @Override
     public List<SocioDTO> getSocios() {
         return socioDAO.getSocios();
+    }*/
+
+
+
+    @Override
+    public List<SocioDTO> getSocios(Long idUser, String rol) {
+        return  (rol.equalsIgnoreCase("ADMINISTRADOR")) ?  socioDAO.getSocios():socioDAO.getSocioUnico(idUser);
     }
 }

@@ -9,4 +9,6 @@ public interface SocioDAO {
     public List<SocioDTO> getSocios();
 
     public Socio getSocioById(Long id);
+
+    public List<SocioDTO> getSocioUnico(Long idUser);
 }

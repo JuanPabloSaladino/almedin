@@ -1,10 +1,7 @@
 package org.umsa.resource;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -20,13 +17,14 @@ public class SocioResource {
     @Inject
     SocioBO socioBO;
 
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "obtiene todos los socios", description="retorna todos los socios registrados")
-    public Response getSocios() {
+    public Response getSocios(@QueryParam("idUsuario") Long idUsuario,@QueryParam("rol")String rol) {
         try {
             return Response
-                    .ok(socioBO.getSocios())
+                    .ok(socioBO.getSocios(idUsuario,rol))
                     .build();
         } catch (Exception e) {
             logger.error("Error al obtener socios", e);
@@ -37,4 +35,6 @@ public class SocioResource {
                     .build();
         }
     }
+
+
 }
