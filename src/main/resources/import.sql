@@ -21,6 +21,9 @@ VALUES (1, 22, 2, 1, 'Juarez', '87654321', 'juarez@email.com', 'manuel',12345,'U
 INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)
 VALUES (1, 46, 3, 1, 'Picapiedra', '12345678', 'picapiedra@email.com', 'Pedro',12345,'USUARIO');
 
+INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)
+VALUES (1, 55, 5, 1, 'strano', '22222222', 'matiasstrano8@gmail.com', 'matias',12345,'USUARIO');
+
 --
 
 INSERT INTO almedin.socio (autorizado, edad, id, plan_id, apellido, documento, email, nombre,contrasenia,rol)

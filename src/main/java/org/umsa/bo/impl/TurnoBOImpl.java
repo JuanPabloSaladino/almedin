@@ -2,6 +2,7 @@ package org.umsa.bo.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.mail.MessagingException;
 import jakarta.persistence.PersistenceException;
 import org.jboss.logging.Logger;
 import org.umsa.bo.TurnoBO;
@@ -29,6 +30,9 @@ public class TurnoBOImpl implements TurnoBO {
 
     @Inject
     ProfesionalDAO profesionalDAO;
+
+    /*@Inject
+    EmailBOImpl EmailBOImpl;*/
 
     @Override
     public List<GetTurnoDTO> getTurnos() {
@@ -99,7 +103,10 @@ public class TurnoBOImpl implements TurnoBO {
 
             Socio socio = socioDAO.getSocioById(turnoDTO.getSocioID());
 
+            //String emailSocio = null;
+
             if (socio != null) {
+                //emailSocio = socio.getEmail();
                 turno.setSocio(socio);
             } else {
                 throw new Exception("Socio no encontrado");
@@ -120,6 +127,14 @@ public class TurnoBOImpl implements TurnoBO {
             turno.setOcupado(true);
 
             Long turnoID = turnoDAO.crearTurno(turno);
+
+            /*try {
+                EmailBOImpl.enviarEmail(socio.getEmail(), turnoDTO, socio, profesional);
+            } catch (MessagingException e) {
+                logger.error("Error al enviar el correo electrónico", e);
+                throw new Exception("Error al enviar el correo electrónico");
+            }*/
+
 
             return turnoID;
         } catch (PersistenceException e) {

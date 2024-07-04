@@ -43,7 +43,7 @@ public class RecetaResource {
 
 
     @GET
-    @Path ("/descargar/{idTurno}/{idUsuario}")
+    @Path("/descargar/{idTurno}/{idUsuario}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "busca una receta medica por TurnoID y por SocioID ", description="esta operacion devuelve la informacion de una receta del Socio solicitante")
@@ -52,29 +52,29 @@ public class RecetaResource {
             @APIResponse(responseCode = "500",description = "Error interno del servidor, usuario no permitido o receta inexistente")
     })
     @ApiOperation(value="devuelve una receta", notes="le pasamos el ID de un turno (el cual tiene asociado una receta) y el id del Socio que solicita esa Receta. si el Socio(SocioID) tiene el Turno (TurnoID) se buscara la receta asociada a ese turno y se retornara. si no la tiene se devolvera un error")
-    public Response descargarReceta(@ApiParam(value= "dato del turno", name = "turnoId",example ="2",required = true) @PathParam("idTurno") Long idTurno,@ApiParam(value = "Dato del usuario", name ="idSocio",example="3",required = true) @PathParam("idUsuario") Long idUsuario) {
-       try {
+    public Response descargarReceta(
+            @ApiParam(value= "dato del turno", name = "turnoId",example ="2",required = true) @PathParam("idTurno") Long idTurno,
+            @ApiParam(value = "Dato del usuario", name ="idSocio",example="3",required = true) @PathParam("idUsuario") Long idUsuario) {
+        try {
+            logger.info("Request received for descargarReceta");
+            logger.info("idTurno: " + idTurno + ", idUsuario: " + idUsuario);
 
-           RecetaDTO receta = recetaBO.descargarReceta(idTurno,idUsuario);
+            RecetaDTO receta = recetaBO.descargarReceta(idTurno, idUsuario);
+            logger.info("Receta found: " + receta);
 
-           return Response
-                   .ok(receta)
-                   .build();
+            return Response
+                    .ok(receta)
+                    .build();
 
-       }catch (Exception e){
-           logger.error("error al descargar receta : ",e);
+        } catch (Exception e) {
+            logger.error("Error al descargar receta: ", e);
 
-           return Response
-                   .status(Response.Status.INTERNAL_SERVER_ERROR)
-                   .entity("error al descargar receta : "+ e.getMessage())
-                   .build();
-
-       }
-
+            return Response
+                    .status(Response.Status.INTERNAL_SERVER_ERROR)
+                    .entity("Error al descargar receta: " + e.getMessage())
+                    .build();
+        }
     }
-
-
-
-
-
 }
+
+

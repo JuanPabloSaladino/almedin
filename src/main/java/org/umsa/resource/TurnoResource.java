@@ -89,6 +89,7 @@ public class TurnoResource {
         try {
             Long turnoID = turnoBO.crearTurno(turnoDTO);
 
+
             return Response
                     .ok(turnoID)
                     .build();
