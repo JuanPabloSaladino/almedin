@@ -43,6 +43,8 @@ public class RecetaBOImpl implements RecetaBO {
 
             recetaDTO.setContenido(receta.getContenido());
 
+            recetaDTO.setFechaCreacion(receta.getFechaCreacion());
+
             return recetaDTO;
 
         }catch (Exception ex) {
