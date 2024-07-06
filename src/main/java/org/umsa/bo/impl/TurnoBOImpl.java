@@ -82,11 +82,15 @@ public class TurnoBOImpl implements TurnoBO {
                 turnoDTO.setNombreSocio(turno.getSocio().getApellido() + ", " + turno.getSocio().getNombre());
             }
 
+            turnoDTO.setTieneReceta(turno.getReceta()!=null);
+
             turnosDTO.add(turnoDTO);
         }
 
         return turnosDTO;
     }
+
+
 
 
 
